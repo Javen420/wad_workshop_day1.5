@@ -1,13 +1,3 @@
-// Steps:
-// 1. Create 3 new variables for "taskinput", "tasktable" and "taskform"
-// 2. add addEventListener to "taskform"
-// 3. use event.preventDefault() to prevent the page from reloading
-// 4. create a new variable to hold value of "taskinput"
-// 5. create new row and add data and delete button into row
-// 6. add delete function to deleteButton
-// 7. append row to table 
-// 8. clear "taskinput value"
-
 // Get references to HTML elements using their IDs
 const taskForm = document.getElementById("taskForm");
 const taskInput = document.getElementById("taskInput");
