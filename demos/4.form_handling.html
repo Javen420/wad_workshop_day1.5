@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exercise 3 - Form Handling</title>
+</head>
+<body>
+    <h1>Task List</h1>
+    <form id="taskForm">
+        <input type="text" id="taskInput" required>
+        <button type="submit">Add Task</button>
+    </form>
+
+    <ul id="taskList"></ul>
+
+    <script>
+        const taskForm = document.getElementById("taskForm");
+        const taskInput = document.getElementById("taskInput");
+        const taskList = document.getElementById("taskList");
+
+        taskForm.addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            const taskText = taskInput.value;
+            if (!taskText) return;
+
+            const li = document.createElement("li");
+            li.textContent = taskText;
+
+            const delBtn = document.createElement("button");
+            delBtn.textContent = "Delete";
+            delBtn.addEventListener("click", function() {
+                li.remove();
+            });
+
+            li.appendChild(delBtn);
+            taskList.appendChild(li);
+
+            taskInput.value = "";
+        });
+    </script>
+</body>
+</html>

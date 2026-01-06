@@ -1,0 +1,19 @@
+{
+  "name": "demos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "1.conditionals.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "ex5": "nodemon exercise5/server.js",
+    "ex6": "nodemon exercise6/server.js",
+    "ex7": "nodemon exercise7/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}

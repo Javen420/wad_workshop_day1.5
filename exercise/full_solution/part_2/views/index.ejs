@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>To-Do List (Stage 3)</title>
+</head>
+<body>
+
+<h1>To-Do List</h1>
+
+<form action="/add-task" method="POST">
+    <label for="taskInput">Task:</label>
+    <input
+        type="text"
+        id="taskInput"
+        name="task"
+        required
+    >
+    <button type="submit">Add Task</button>
+</form>
+
+<br>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>Task</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% tasks.forEach(task => { %>
+            <tr>
+                <td><%= task.text %></td>
+                <td>
+                    <form action="/delete-task" method="POST" style="display:inline;">
+                        <input type="hidden" name="id" value="<%= task.id %>">
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        <% }) %>
+    </tbody>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exercise 2 - DOM</title>
+    <style>
+        .highlight { background-color: yellow; }
+    </style>
+</head>
+<body>
+    <div id="main">Hello World</div>
+    <div class="item">Item 1</div>
+    <div class="item">Item 2</div>
+    <button id="btnChange">Change Styles</button>
+
+    <script>
+        // Select by ID
+        const mainDiv = document.getElementById("main");
+        mainDiv.textContent = "Hello JavaScript!";
+
+        // Select by class
+        const items = document.getElementsByClassName("item");
+        for (let i = 0; i < items.length; i++) {
+            items[i].style.backgroundColor = "#f0f0f0";
+        }
+
+        // Select using querySelector
+        const firstItem = document.querySelector(".item");
+        firstItem.style.border = "2px solid red";
+
+        const allItems = document.querySelectorAll(".item");
+        allItems.forEach(item => item.style.padding = "5px");
+
+        // Event listener
+        const btn = document.getElementById("btnChange");
+        btn.addEventListener("click", function() {
+            mainDiv.classList.toggle("highlight");
+        });
+    </script>
+</body>
+</html>
