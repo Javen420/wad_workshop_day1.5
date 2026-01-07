@@ -14,6 +14,14 @@ let tasks = [];
 let nextId = 1; 
 
 // Show the to-do list
+app.get("/", (req, res) => {
+    try {
+        res.render("index", { tasks });
+    } catch (err) {
+        console.error(err);
+        res.send("Error rendering page");
+    }
+});
 
 // Add a task
 app.post("/add-task", (req, res) => {
@@ -31,6 +39,7 @@ app.post("/add-task", (req, res) => {
 });
 
 // Delete a task
+app.delete("")
 
 
 app.listen(PORT, () => {

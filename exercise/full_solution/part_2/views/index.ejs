@@ -33,7 +33,7 @@
             <tr>
                 <td><%= task.text %></td>
                 <td>
-                    <form action="/delete-task" method="POST" style="display:inline;">
+                    <form action="/delete-task" method="POST">
                         <input type="hidden" name="id" value="<%= task.id %>">
                         <button type="submit">Delete</button>
                     </form>

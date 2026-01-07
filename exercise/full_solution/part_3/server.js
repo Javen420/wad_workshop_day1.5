@@ -1,6 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const Task = require("./models/Task");
+const Task = require(".models/Tasks");
 
 const app = express();
 const PORT = 3000;
@@ -16,14 +16,16 @@ mongoose.connect("mongodb://127.0.0.1:27017/todoApp")
 
 // Show tasks
 app.get("/", async (req, res) => {
-    const tasks = await Task.find();
+    const tasks = await Task.find(); 
     res.render("index", { tasks });
+    const task = await Task.find({ text: "Buy milk" });
+    res.send("found", {task})
+    Task.findbyid(taskid)
 });
 
 // Add task
 app.post("/add-task", async (req, res) => {
     const taskText = req.body.task;
-
     if (taskText !== "") {
         await Task.create({
             text: taskText,

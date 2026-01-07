@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="div1">
+
+    </div>
+    <div>
+
+    </div>
+    <script>
+        const tasks = ["Task 1", "Task 2", "Task 3"]; // Example tasks
+        const tableBody = document.getElementById("task-table-body"); // tbody element in your HTML
+
+        tasks.forEach(item => {
+            // Create table row and cells
+            const new_row = document.createElement("tr");
+            const new_cell1 = document.createElement("td");
+            const new_cell2 = document.createElement("td");
+            const new_cell3 = document.createElement("td"); // for button
+
+            // Fill cells
+            new_cell1.textContent = tasks.indexOf(item) + 1; // optional: task number
+            new_cell2.textContent = item;
+
+            // Create delete button
+            const new_button = document.createElement("button");
+            new_button.textContent = "Delete";
+            new_button.addEventListener("click", () => {
+                new_row.remove(); // Remove row from table
+            });
+
+            // Append button to cell
+            new_cell3.appendChild(new_button);
+
+            // Append cells to row
+            new_row.appendChild(new_cell1);
+            new_row.appendChild(new_cell2);
+            new_row.appendChild(new_cell3);
+
+            // Append row to table body
+            tableBody.appendChild(new_row);
+        });
+
+    </script>
+</body>
+
+</html>
