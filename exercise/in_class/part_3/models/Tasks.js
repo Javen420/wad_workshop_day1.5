@@ -1,9 +1,14 @@
-// steps:
+const mongoose = require("mongoose");
 
-// import mongoose
+const taskSchema = new mongoose.Schema({
+    text: {
+        type: String,
+        required: true
+    },
+    completed: {
+        type: Boolean,
+        default: false
+    }
+});
 
-// create new taskSchema 
-
-// add data (text, completed)
-
-// export
+module.exports = mongoose.model("Task", taskSchema);

@@ -1,6 +1,6 @@
 const express = require("express");
-//import mongoose "const mongoose = require("mongoose");"
-//import Task "const Task = require("./models/Task");"
+const mongoose = require("mongoose");
+const Task = require("./models/Tasks");
 
 const app = express();
 const PORT = 3000;
@@ -10,12 +10,15 @@ app.use(express.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 
 // MongoDB connection
-mongoose.connect("") // add connection
-    .then(() => console.log("")) // add success message 
+mongoose.connect("mongodb://127.0.0.1:27017/todoApp") // add connection
+    .then(() => console.log("MongoDB connected")) // add success message 
     .catch(err => console.error(err));
 
 // Show tasks
-
+app.get("/", async (req, res) => {
+    const tasks = await Task.find();
+    res.render("index", { tasks });
+});
 
 // Add task
 app.post("/add-task", async (req, res) => {
